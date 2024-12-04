@@ -13,7 +13,7 @@ public class App {
 
         File f = new File(FILE_JSON);
         if(f.exists() && !f.isDirectory())
-                tasks = loadTasksFromFile( FILE_JSON );
+                tasks = loadTasksFromFile( FILE_XML );
         else
             tasks = prepareTasks();
         ToDoListAPP.saveTasksToFile( FILE_JSON, tasks);

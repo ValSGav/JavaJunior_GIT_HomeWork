@@ -8,7 +8,7 @@ public class Student implements Serializable {
     //region Поля
     private String name;
     private int age;
-    transient double gpa;
+    transient private double gpa;
     //endregion
     //region Конструкторы
     public Student() {
@@ -17,10 +17,16 @@ public class Student implements Serializable {
     public Student(String name, int age) {
         this.name = name;
         this.age = age;
-        this.gpa = 0d;
+        this.gpa = 0;
     }
-    //endregion
-//region Методы
+
+    public Student(String name, int age, double gpa) {
+        this.name = name;
+        this.age = age;
+        this.gpa = gpa;
+    }
+//endregion
+    //region Методы
 
     public String getName() {
         return name;

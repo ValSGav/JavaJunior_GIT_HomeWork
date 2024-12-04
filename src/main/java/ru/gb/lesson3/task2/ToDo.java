@@ -9,7 +9,7 @@ public class ToDo implements Externalizable {
 
     //region Поля
     private String title;
-    private boolean isDone;
+    transient private boolean isDone;
     //endregion
 
     //region Конструкторы
