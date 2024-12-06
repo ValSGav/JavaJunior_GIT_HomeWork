@@ -3,15 +3,18 @@ package ru.gb.lesson4.homework;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table( name = "Courses" )
 public class Courses {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name  = "title")
     private String title;
+    @Column(name = "duration")
     private double duration;
 
     public Courses() {
