@@ -6,13 +6,13 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import javax.persistence.*;
 
 @Entity
-@Table( name = "Courses" )
+@Table(name = "Courses")
 public class Courses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name  = "title")
+    @Column(name = "title")
     private String title;
     @Column(name = "duration")
     private double duration;
@@ -20,14 +20,12 @@ public class Courses {
     public Courses() {
     }
 
-    public Courses(int id, String title, double duration) {
-        this.id = id;
+    public Courses(String title, double duration) {
         this.title = title;
         this.duration = duration;
     }
 
-    public Courses(int id, String title) {
-        this.id = id;
+    public Courses(String title) {
         this.title = title;
         this.duration = 0;
     }
