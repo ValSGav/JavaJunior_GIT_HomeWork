@@ -42,10 +42,11 @@ public class App {
 
             cours2.setTitle( "Рисование" );
             cours2.setDuration( 8.8 );
-            hibernateUtil.updateObject( cours2 );
+            pmUtil.updateObject( cours2 );
 
-            System.out.println( pmUtil.readObjectDB( 2 ) );
+            System.out.println(pmUtil.readObjectDB( 2 ) );
 
+            pmUtil.deleteObjectDB( cours1 );
 
         } catch (Exception e) {
             e.printStackTrace();

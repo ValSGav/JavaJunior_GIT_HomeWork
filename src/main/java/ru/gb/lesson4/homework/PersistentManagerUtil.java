@@ -12,7 +12,8 @@ public class PersistentManagerUtil<T> {
     }
 
     public T readObjectDB(int id) throws Exception {
-        return (T) util.readObjectDB( id );
+        T obj = (T) util.readObjectDB( id );
+        return (obj) ;
     }
 
     public void updateObject(Object obj) throws Exception {
