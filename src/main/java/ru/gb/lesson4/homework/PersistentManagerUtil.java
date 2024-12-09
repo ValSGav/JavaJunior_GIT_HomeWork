@@ -11,8 +11,10 @@ public class PersistentManagerUtil<T> {
         util.createObjectDB( obj );
     }
 
+    @SuppressWarnings( "unchecked" )
     public T readObjectDB(int id) throws Exception {
         T obj;
+
         obj = (T) util.readObjectDB( id );
         return (obj) ;
     }
