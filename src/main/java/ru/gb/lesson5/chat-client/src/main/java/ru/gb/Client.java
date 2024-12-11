@@ -24,22 +24,19 @@ public class Client {
     }
 
     public void listenForMessage() {
-        new Thread( new Runnable() {
-            @Override
-            public void run() {
-                String message;
-                while ( socket.isConnected() ) {
-                    try {
-                        message = bufferedReader.readLine();
-                        System.out.println( message );
-                    } catch (IOException e) {
-                        System.out.println("ошибка");
-                        closeEverything( socket, bufferedReader, bufferedWriter );
-                        break;
-                    }
+        new Thread(() -> {
+            String message;
+            while ( socket.isConnected() ) {
+                try {
+                    message = bufferedReader.readLine();
+                    System.out.println( message );
+                } catch (IOException e) {
+                    System.out.println("ошибка");
+                    closeEverything( socket, bufferedReader, bufferedWriter );
+                    break;
                 }
             }
-        } ).start();
+        }).start();
     }
 
     public void sendMessage() {

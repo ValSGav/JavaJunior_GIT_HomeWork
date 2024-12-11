@@ -16,13 +16,10 @@ public class Server {
             try {
                 Socket socket = serverSocket.accept();
                 ClientManger clientManger = new ClientManger(socket);
-                if (!socket.isClosed()) {
-                    System.out.println("Подключен новый клиент!");
-                    Thread thread = new Thread(clientManger);
-                    thread.start();
-                } else {
-                    System.out.println("Не удалось подключить клиента: " + clientManger.getName());
-                }
+                System.out.println("Подключен новый клиент!");
+                Thread thread = new Thread(clientManger);
+                thread.start();
+
             } catch (IOException e) {
                 closeSocket();
             }

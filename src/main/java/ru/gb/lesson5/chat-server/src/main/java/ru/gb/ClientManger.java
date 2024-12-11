@@ -3,7 +3,6 @@ package ru.gb;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class ClientManger implements Runnable {
     private final Socket socket;
@@ -68,7 +67,7 @@ public class ClientManger implements Runnable {
                 StringBuilder formattedMessageFromClient = new StringBuilder();
                 for (String part : partsOfMessage) {
                     if (part.startsWith("@"))
-                        nameOfPrivateClient = part.substring(1, part.length()).toString();
+                        nameOfPrivateClient = part.substring(1, part.length());
                     else
                         formattedMessageFromClient.append(part).append(" ");
                 }
@@ -76,7 +75,7 @@ public class ClientManger implements Runnable {
                     formattedMessageFromClient
                             .deleteCharAt(formattedMessageFromClient.length() - 1);
 
-                if (nameOfPrivateClient == "")
+                if (nameOfPrivateClient.equals(""))
                     broadcastMessage(formattedMessageFromClient.toString());
                 else
                     broadcastMessage(formattedMessageFromClient.toString(), nameOfPrivateClient);
@@ -87,7 +86,6 @@ public class ClientManger implements Runnable {
 
         }
     }
-
 
 
     public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter) {

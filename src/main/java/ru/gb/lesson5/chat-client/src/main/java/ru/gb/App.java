@@ -32,9 +32,7 @@ public class App {
             client.sendMessage();
 
         }
-        catch (UnknownHostException e){
-            e.printStackTrace();
-        }catch (IOException e){
+        catch (IOException e){
             e.printStackTrace();
         }
     }
