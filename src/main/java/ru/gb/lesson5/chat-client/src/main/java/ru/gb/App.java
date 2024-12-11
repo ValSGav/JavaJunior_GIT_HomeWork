@@ -27,6 +27,10 @@ public class App {
             System.out.println("Remote IP: " + remoteIP);
             System.out.println("Local port: " + socket.getLocalPort());
 
+            Client client = new Client(socket, name);
+            client.listenForMessage();
+            client.sendMessage();
+
         }
         catch (UnknownHostException e){
             e.printStackTrace();

@@ -35,6 +35,7 @@ public class Client {
                     } catch (IOException e) {
                         System.out.println("ошибка");
                         closeEverything( socket, bufferedReader, bufferedWriter );
+                        break;
                     }
                 }
             }
@@ -50,7 +51,7 @@ public class Client {
             Scanner sc = new Scanner( System.in );
             while ( socket.isConnected() ){
                 String message = sc.nextLine();
-                bufferedWriter.write( name + ": " + message );
+                bufferedWriter.write(  message );
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }

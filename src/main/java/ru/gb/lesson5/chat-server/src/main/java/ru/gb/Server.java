@@ -12,13 +12,17 @@ public class Server {
     }
 
     public void runServer() {
-        while ( !serverSocket.isClosed() ) {
+        while (!serverSocket.isClosed()) {
             try {
                 Socket socket = serverSocket.accept();
-                ClientManger clientManger = new ClientManger( socket );
-                System.out.println( "Подключен новый клиент!" );
-                Thread thread = new Thread( clientManger );
-                thread.start();
+                ClientManger clientManger = new ClientManger(socket);
+                if (!socket.isClosed()) {
+                    System.out.println("Подключен новый клиент!");
+                    Thread thread = new Thread(clientManger);
+                    thread.start();
+                } else {
+                    System.out.println("Не удалось подключить клиента: " + clientManger.getName());
+                }
             } catch (IOException e) {
                 closeSocket();
             }
@@ -27,7 +31,7 @@ public class Server {
 
     private void closeSocket() {
         try {
-            if ( serverSocket != null ) serverSocket.close();
+            if (serverSocket != null) serverSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
