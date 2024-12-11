@@ -67,7 +67,7 @@ public class ClientManger implements Runnable {
                 StringBuilder formattedMessageFromClient = new StringBuilder();
                 for (String part : partsOfMessage) {
                     if (part.startsWith("@"))
-                        nameOfPrivateClient = part.substring(1, part.length());
+                        nameOfPrivateClient = part.substring(1);
                     else
                         formattedMessageFromClient.append(part).append(" ");
                 }
